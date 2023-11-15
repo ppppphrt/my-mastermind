@@ -20,7 +20,6 @@ class Mastermind:
     def _generate_secret_code(self):
         self._secret_code = [random.randint(1, self._colors) for _ in range(self._positions)]
 
-
     def _get_hint(self, guess):
         correct_positions = 0
         correct_colors = 0
@@ -40,4 +39,17 @@ class Mastermind:
                 temp_code[temp_code.index(temp_guess[i])] = None
 
         return '*' * correct_positions + 'o' * correct_colors
+
+    def _get_user_guess(self):
+        guess = input("Enter your guess: ")
+        converted_guess = []
+        for i in guess[:self._positions]:
+            num = int(i)
+            converted_guess.append(num)
+        return converted_guess
+
+
+
+
+
 
