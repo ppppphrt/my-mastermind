@@ -42,6 +42,12 @@ class Mastermind:
 
     def _get_user_guess(self):
         guess = input("Enter your guess: ")
+        if len(guess) > self._positions:
+            print(f"Too many digits. Please enter exactly {self._positions} digits.")
+
+        if len(guess) < self._positions:
+            print(f"Not enough digits. Please enter exactly {self._positions} digits.")
+
         converted_guess = []
         for i in guess[:self._positions]:
             num = int(i)
@@ -55,6 +61,24 @@ class Mastermind:
         else:
             print("The game is still in progress.")
 
-    def
+    def playing_game(self):
+        print(f"Starting Mastermind with {self._colors} colors and {self._positions} positions.")
+        while not self._game_over:
+            guess = self._get_user_guess()
+            self._rounds += 1
+            hint = self._get_hint(guess)
+            self._display_hint(hint)
+            self._game_over = self._is_game_finished(hint)
 
+    def _display_hint(self, hint):
+        print(f"Hint: {hint}")
+
+    def _is_game_finished(self, hint):
+        return hint == '*' * self._positions
+
+
+game = Mastermind()
+game.setup_game(colors=6, positions=4)
+game.playing_game()
+game.dump_game_state()
 
