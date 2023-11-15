@@ -1,7 +1,7 @@
 import random
 
 
-class Master_mind:
+class Mastermind:
 
     def __init__(self):
         self._colors = 0
