@@ -48,8 +48,13 @@ class Mastermind:
             converted_guess.append(num)
         return converted_guess
 
+    def dump_game_state(self):
+        if self._game_over:
+            print(f"Secret code: {self._secret_code}")
+            print(f"Total rounds played: {self._rounds}")
+        else:
+            print("The game is still in progress.")
 
-
-
+    def
 
 
