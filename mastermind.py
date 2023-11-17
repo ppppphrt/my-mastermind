@@ -72,7 +72,7 @@ class Mastermind:
             self._display_hint(hint)
             self._game_over = self._is_game_finished(hint)
 
-    def _display_hint(hint):
+    def _display_hint(self, hint):
         print(f"Hint: {hint}")
 
     def _is_game_finished(self, hint):
